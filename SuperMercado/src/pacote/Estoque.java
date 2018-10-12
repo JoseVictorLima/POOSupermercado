@@ -31,4 +31,14 @@ public class Estoque {
 			System.out.println("Preço: " + prod.getPreco());
 		}
 	}
+	
+	public Produto Buscar(String nome) {
+		for(int i=0;i<this.listProduto.size();i++) {
+			Produto produto = (Produto)this.listProduto.get(i);
+			if(produto.getNome()==nome) {
+				return produto;
+			}
+		}
+		return null;
+	}
 }

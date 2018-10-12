@@ -21,30 +21,62 @@ public class Caixa {
 		
 	}
 	
-	public void Pagar(int opcaoDePagamento,Funcionario funcionario,Cliente cliente,Produto produto,int quant,Estoque estoque) {
-		if(cliente.getDinheiro()>=produto.getPreco()) {
+	public void Pagar(int opcaoDePagamento,Funcionario funcionario,Cliente cliente,Estoque estoque, ArrayList produtos, ArrayList quantidades) {
 			if(opcaoDePagamento==1) {
 				//Dinheiro
 				float troco;
-				troco = cliente.getDinheiro() - (produto.getPreco() * quant);
+				for(int i=0; i<produtos.size();i++) {
+					
+					Produto prod= (Produto)produtos.get(i);
+					int quant = (int)quantidades.get(i);
+					troco = cliente.getDinheiro() - (prod.getPreco() * quant);
+				}
+				
+				if(clinte.getDinheiro()>=troco) {
+					
 				cliente.setDinheiro(troco);
-				estoque.Retirar(produto, quant);
+					for(int i=0; i<produtos.size();i++) {
+					
+						Produto prod = (Produto)produtos.get(i);
+						int quant = (int)quantidades.get(i);
+						estoque.Retirar(prod, quant);
+						SalvarLog(funcionario,prod);
+					
+					}
+				
 				System.out.println("Troco: " + (int)troco +" reais e "+ (troco-(int)troco) + " centavos");
-				SalvarLog(funcionario,produto);
+				
+				}
+				else {
+					System.out.println("Cliente não possui dinheiro suficiente para pagar");
+				}
 			}else if(opcaoDePagamento==2) {
 				//Cartão
 				float resto;
-				resto = cliente.getDinheiro() - (produto.getPreco() * quant);
+				for(int i=0; i<produtos.size();i++) {
+					
+					Produto prod= (Produto)produtos.get(i);
+					int quant = (int)quantidades.get(i);
+					resto = cliente.getDinheiro() - (prod.getPreco() * quant);
+				}
+				if(clinte.getDinheiro()>=resto) {
+					
 				cliente.setDinheiro(resto);
-				estoque.Retirar(produto, quant);
-				SalvarLog(funcionario,produto);
+					for(int i=0; i<produtos.size();i++) {
+					
+						Produto prod = (Produto)produtos.get(i);
+						int quant = (int)quantidades.get(i);
+						estoque.Retirar(prod, quant);
+						SalvarLog(funcionario,prod);
+					
+					}
+				}
+				else {
+					System.out.println("Cliente não possui dinheiro suficiente para pagar");
+				}
 			}else {
 				System.out.println("Opção de pagamento invalida");
 			}
-		}
-		else {
-			System.out.println("Cliente não possui dinheiro suficiente para pagar");
-		}
 	}
 	
 	//Metodo para Salvar Logs
