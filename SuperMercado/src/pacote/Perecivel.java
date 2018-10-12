@@ -1,6 +1,6 @@
-package SPM;
+package pacote;
 
 public class  Perecivel extends Produto{
-	double preço;
+	double preco;
 
 }

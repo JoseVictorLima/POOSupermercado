@@ -1,32 +1,35 @@
 package pacote;
-
+import java.lang.String; 
 public class Produto {
-	private String nome;
-	private int quantidade;
-	private double preco;
-
-
+	String Codigo;
+	String Nome;
+	double Preco;
+	int Quantidade;
+	
+	public String getCodigo() {
+		return Codigo;
+	}
+	public void setCodigo(String codigo) {
+		Codigo = codigo;
+	}
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
-
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
-	
-	public int getQuantidade() {
-		return this.quantidade;
-	}
-	
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-	
 	public double getPreco() {
-		return preco;
+		return Preco;
+	}
+	public void setPreco(double preço) {
+		Preco = preço;
+	}
+	public int getQuantidade() {
+		return Quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		Quantidade = quantidade;
 	}
 	
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
+
 }
