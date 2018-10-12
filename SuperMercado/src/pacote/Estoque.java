@@ -11,15 +11,19 @@ public class Estoque {
 	
 	public void Retirar(Produto prod, int unid) {
 		int indice=0;
-		if(listProduto.contains(prod)) {
+		if(this.listProduto.contains(prod)) {
 			indice = this.listProduto.indexOf(prod);
 			prod.setQuantidade(unid);
 			this.listProduto.set(indice,prod);
 		}
 	}
-	
+	public void Remover(Produto prod) {
+		if(this.listProduto.contains(prod)) {
+			this.listProduto.remove(this.listProduto.indexOf(prod));
+		}
+	}
 	public void EstoqueGeral() {
-		for(int i =0; i < listProduto.size();i++) {
+		for(int i =0; i < this.listProduto.size();i++) {
 			Produto prod;
 			prod = this.listProduto.get(i);
 			System.out.println("Nome: " + prod.getNome());
