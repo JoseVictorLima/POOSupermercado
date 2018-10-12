@@ -30,6 +30,9 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		Quantidade = quantidade;
 	}
+	public String toString() {
+		return this.Codigo + this.Nome + this.Preco;
+		}
 	
 
 }
