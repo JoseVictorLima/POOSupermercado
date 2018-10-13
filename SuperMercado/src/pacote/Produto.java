@@ -6,6 +6,8 @@ public class Produto {
 	double Preco;
 	int Quantidade;
 	
+	
+	
 	public String getCodigo() {
 		return Codigo;
 	}
@@ -29,8 +31,19 @@ public class Produto {
 	}
 	public void setQuantidade(int quantidade) {
 		Quantidade = quantidade;
+			}
+	
+	public Produto(String codigo, String nome, double preco, int quantidade) {
+		super();
+		Codigo = codigo;
+		Nome = nome;
+		Preco = preco;
+		Quantidade = quantidade;
+	
 	}
+
 	String Str = String.valueOf(Preco);
+	
 	
 	public String toString() {
 		return this.Codigo +" " + this.Nome +" "+ Str;
