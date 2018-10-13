@@ -21,6 +21,14 @@ public class Caixa {
 		
 	}
 	
+    
+	
+	public Caixa(int id, float valorNoCaixa) {
+		super();
+		this.id = id;
+		this.valorNoCaixa = valorNoCaixa;
+	}
+
 	public void Pagar(int opcaoDePagamento,Funcionario funcionario,Cliente cliente,Produto produto,int quant,Estoque estoque) {
 		if(cliente.getDinheiro()>=produto.getPreco()) {
 			if(opcaoDePagamento==1) {

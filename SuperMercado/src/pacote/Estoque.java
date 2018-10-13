@@ -5,6 +5,10 @@ import pacote.Produto;
 public class Estoque {
 	private ArrayList<Produto> listProduto = new ArrayList();
 	
+	public Estoque() {
+		
+	}
+	
 	public void Adicionar(Produto prod) {
 		this.listProduto.add(prod);
 	}
