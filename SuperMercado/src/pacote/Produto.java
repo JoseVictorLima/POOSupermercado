@@ -30,8 +30,10 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		Quantidade = quantidade;
 	}
+	String Str = String.valueOf(Preco);
+	
 	public String toString() {
-		return this.Codigo + this.Nome + this.Preco;
+		return this.Codigo +" " + this.Nome +" "+ Str;
 		}
 	
 
